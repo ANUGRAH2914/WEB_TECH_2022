@@ -1,70 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assign_8</title>
-  
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  
-  <script>
-        var app = angular.module("myapp", []);
-        app.controller("mycontrol", function($scope) {
-            
-            $scope.calculate = function() {
-                var v1 = parseFloat($scope.v1);
-                var v2 = parseFloat($scope.v2);
-                //var v3;
-
-                if($scope.op == '+') {
-                    return v1+v2;
-                }
-                else if($scope.op == '-') {
-                    return v1-v2;
-                }
-                else if($scope.op == '*') {
-                    return v1*v2;
-                }
-                else if($scope.op == '/') {
-                    return v1/v2;
-                }
-                else if($scope.op == '%'){
-                    return v1%v2;
-                }
-                
-                //$scope.output = v3;
-            }
+    <title> Q2 </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script>
+        var app = angular.module('myapp', ['ngRoute']);
+        app.config(function($routeProvider) {
+            $routeProvider.when('/song1', {
+                templateUrl : 'hindi.html'
+            }).when('/song2', {
+                templateUrl : 'tamil.html'
+            }).when('/song3', {
+                templateUrl : 'telugu.html'
+            }).when('/song4', {
+                templateUrl : 'malayalam.html'
+            })
         })
-  </script>
+    </script>
 </head>
-
-<body>
-    <h3 align="center"> Question-2 Calculator </h3>
-    <div ng-app="myapp" ng-controller="mycontrol">
-        <label> Enter first number : </label>
-        <input type="text" ng-model="v1"> <br><br>
-
-        <label> Enter second number : </label>
-        <input type="text" ng-model="v2"> <br><br>
-        
-        <label for="operator"> Select an operation </label>
-        <select name="operator" id="op" ng-model="op">
-            <option value="" disabled selected hidden> Select operation </option>
-            <option value="+"> + </option>
-            <option value="-"> - </option>
-            <option value="*"> * </option>
-            <option value="/"> / </option>
-            <option value="%"> % </option>
-        </select>
-        <br>
-
-        <!--button ng-click="calculate()"> Calculate </button-->
-        <br>
-        <label for="result"> Solution: </label>
-        <!--input type="text" readonly ng-model="output"-->
-        <p>{{ calculate() }}</p>
+<body ng-app="myapp">
+    <div>
+        <h2> MULTILINGUAL WORSHIP SONGS </h2>
+        <h3> And they worshiped him and returned to Jerusalem with great joy - Luke 24:52</h3>
+        <h3> WORSHIP IN YOUR LANGUAGE: </h3>
+        <a href="#!song1"> Hindi Worship Song </a> <br><br>
+        <a href="#!song2"> Tamil Worship Song </a> <br><br>
+        <a href="#!song3"> Telugu Worship Song </a> <br><br>
+        <a href="#!song4"> Malayalam Worship Song </a> <br>
     </div>
+    <div ng-view></div>
 </body>
 </html>
