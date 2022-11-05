@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exp10 </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script>
+        var app = angular.module('myapp', ['ngRoute']);
+        app.config(function($routeProvider) {
+            $routeProvider.when('/urk20cs2037', {
+                templateUrl : 'urk20cs2037.html'
+            }).when('/urk20cs2035', {
+                templateUrl : 'urk20cs2035.html'
+            }).when('/urk20cs2055', {
+                templateUrl : 'urk20cs2055.html'
+            }).when('/urk20cs2042', {
+                templateUrl : 'urk20cs2042.html'
+            }).when('/urk20cs2036',{
+                templateUrl : 'urk20cs2036.html'
+            }).when('/urk20cs2038',{
+                templateUrl : 'urk20cs2038.html'
+            }).when('/urk20cs2039',{
+                templateUrl : 'urk20cs2039.html'
+            }).when('/urk20cs2041',{
+                templateUrl : 'urk20cs2041.html'
+            })
+        })
+    </script>
+</head>
+<body ng-app="myapp">
+    <div>
+        <h2> Student Details </h2>
+       
+        <h3>Click RegNo. to See Details</h3>
+        <a href="#!urk20cs2035"> URK20CS2035</a> <br><br>
+        <a href="#!urk20cs2036"> URK20CS2036</a> <br><br>
+        <a href="#!urk20cs2037"> URK20CS2037</a> <br><br>
+        <a href="#!urk20cs2038"> URK20CS2038</a> <br> <br>
+        <a href="#!urk20cs2039"> URK20CS2039</a> <br><br>
+        <a href="#!urk20cs2041"> URK20CS2041</a> <br><br>
+        <a href="#!urk20cs2042"> URK20CS2042</a> <br><br>
+    </div>
+    <div ng-view></div>
+</body>
+</html>
